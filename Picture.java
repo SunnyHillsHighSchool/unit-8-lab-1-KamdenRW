@@ -368,7 +368,36 @@ public class Picture
 
    ////////////////////// methods ///////////////////////////////////////
 
-   
+public void mirror ()
+{
+//Create a 2d array of pixels
+Pixel[][]data = this.getPixels2D();
+//create 2 pixxel variables for the top and bottom
+Pixel bottomPixel = null;
+Pixel topPixel = null;
+//Declare mirrorPoint = array[0].length/2
+int mirrorPoint = data.length/2;
+//Loop through rows
+for(int r = 0; r< mirrorPoint; r++)
+{
+//Loop through columns
+  for(int c = 0; c < data[0].length; c++)
+  {
+    //Set the top pixel to the bottom pixel
+    topPixel = data[r][c]; 
+    bottomPixel = data[data.length-1-r][c];
+
+    //swap color
+    bottomPixel.setColor(topPixel.getColor());
+
+  }
+}
+}
+
+
+
+
+
 
 
 } // this } is the end of class Picture, put all new methods before this
